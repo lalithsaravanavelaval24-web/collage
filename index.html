@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Northview College - Home</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f8f9fa;
+    }
+
+    /* Header */
+    header {
+      background-color: #003366; /* Dark blue - professional */
+      color: white;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .logo {
+      width: 60px;
+      height: 60px;
+      background-color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #003366;
+    }
+
+    .college-name {
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffd700; /* Gold hover */
+    }
+
+    .apply-btn {
+      background-color: #ffd700;
+      color: #003366;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .apply-btn:hover {
+      background-color: #ffeb3b;
+      transform: translateY(-2px);
+    }
+
+    /* Explore Section */
+    .explore-section {
+      max-width: 1200px;
+      margin: 3rem auto;
+      padding: 0 1rem;
+      text-align: center;
+    }
+
+    .explore-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2.5rem;
+      color: #003366;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    @media (min-width: 768px) {
+      .features {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .feature-card {
+      background: white;
+      border-radius: 10px;
+      padding: 2rem 1.5rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    }
+
+    .feature-icon {
+      font-size: 3.5rem;
+      color: #003366;
+      margin-bottom: 1rem;
+    }
+
+    .feature-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #003366;
+    }
+
+    .feature-card p {
+      margin-bottom: 1.5rem;
+      color: #555;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: #003366;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #002244;
+    }
+
+    /* Event Highlights */
+    .events {
+      background-color: #e9f0ff;
+      padding: 3rem 1rem;
+      text-align: center;
+    }
+
+    .events h3 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      color: #003366;
+    }
+
+    .event-image {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin: 1rem auto;
+      display: block;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    /* Footer */
+    footer {
+      background-color: #003366;
+      color: white;
+      padding: 3rem 1rem 1.5rem;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      text-align: center;
+    }
+
+    @media (min-width: 768px) {
+      .footer-container {
+        grid-template-columns: repeat(3, 1fr);
+        text-align: left;
+      }
+    }
+
+    .footer-links ul {
+      list-style: none;
+    }
+
+    .footer-links a {
+      color: #ddd;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 0.8rem;
+    }
+
+    .footer-links a:hover {
+      color: #ffd700;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+    }
+
+    .social-icons a {
+      color: white;
+      font-size: 1.8rem;
+      transition: color 0.3s;
+    }
+
+    .social-icons a:hover {
+      color: #ffd700;
+    }
+
+    .contact-info {
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. Header Section -->
+  <header>
+    <div class="header-container">
+      <div class="logo-area">
+        <div class="logo">NC</div>
+        <span class="college-name">Northview College</span>
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Academics</a></li>
+          <li><a href="#">Admissions</a></li>
+          <li><a href="#">Campus Life</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><button class="apply-btn">Apply Now</button></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 2. Explore Our College Section -->
+  <section class="explore-section">
+    <h2>Explore Our College</h2>
+
+    <div class="features">
+      <!-- About Us -->
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-university"></i></div>
+        <h3>About Us</h3>
+        <p>Discover our history, mission, values, and what makes Northview College a leading institution of higher education.</p>
+        <a href="#" class="btn">Learn More</a>
+      </div>
+
+      <!-- Our Programs -->
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-sun"></i></div>
+        <h3>Our Programs</h3>
+        <p>Explore innovative science projects by our talented students and faculty.</p>
+        <a href="#" class="btn">View Programs</a>
+      </div>
+
+      <!-- Campus Life -->
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-mountain"></i></div>
+        <h3>Campus Life</h3>
+        <p>Participate in clubs, sports, and social activities about our programs and facilities.</p>
+        <a href="#" class="btn">Discover More</a>
+      </div>
+    </div>
+
+    <!-- Event Highlights -->
+    <div class="events">
+      <h3>Event Highlights</h3>
+      <img src="https://www.syracuse.edu/images/BmY9Yz0qo4OeCtkKmst2FwjIuHc=/6092/width-1300/2024-syracuse-welcome-students-on-stairs.jpeg" alt="Students enjoying campus life" class="event-image">
+      <img src="https://moderncampus.com/_resources/images/blog/building-skills-through-co-curricular-activities.jpg" alt="Co-curricular activities and student engagement" class="event-image">
+      <a href="#" class="btn" style="margin-top: 1.5rem;">View All Events</a>
+    </div>
+  </section>
+
+  <!-- 3. Footer Section -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Admissions</a></li>
+        </ul>
+      </div>
+
+      <div class="social-icons">
+        <h4>Follow Us</h4>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+      </div>
+
+      <div class="contact-info">
+        <h4>Contact Us</h4>
+        <p>Phone: +91 123-456-7890</p>
+        <p>Email: info@northviewcollege.edu</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
